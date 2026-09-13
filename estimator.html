@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+```
+<title>Price Estimator | FreelanceFlow</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    primary: "#6366F1",
+                    secondary: "#8B5CF6",
+                    dark: "#111827"
+                }
+            }
+        }
+    }
+</script>
+```
+
+</head>
+
+<body class="bg-slate-50 text-slate-800">
+
+```
+<!-- ================= NAVBAR ================= -->
+
+<nav class="bg-white border-b border-slate-200 sticky top-0 z-50">
+
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+
+        <a href="index.html"
+           class="text-2xl font-bold text-primary">
+
+            FreelanceFlow
+
+        </a>
+
+
+        <div class="hidden md:flex items-center gap-6">
+
+            <a href="index.html"
+               class="text-slate-600 hover:text-primary transition">
+
+                Home
+
+            </a>
+
+
+            <a href="scope-creep.html"
+               class="text-slate-600 hover:text-primary transition">
+
+                Scope Tracker
+
+            </a>
+
+
+            <a href="milestones.html"
+               class="text-slate-600 hover:text-primary transition">
+
+                Milestones
+
+            </a>
+
+
+            <a href="invoice.html"
+               class="text-slate-600 hover:text-primary transition">
+
+                Invoice
+
+            </a>
+
+
+            <a href="dashbord.html"
+               class="bg-primary text-white px-5 py-2 rounded-lg hover:bg-indigo-700 transition">
+
+                Dashboard
+
+            </a>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+
+<!-- ================= PAGE HEADER ================= -->
+
+<section class="py-14">
+
+    <div class="max-w-7xl mx-auto px-6 text-center">
+
+        <p class="text-primary font-semibold">
+            SMART PROJECT PRICING
+        </p>
+
+
+        <h1 class="text-4xl md:text-5xl font-bold text-dark mt-3">
+
+            Dynamic Price Estimator
+
+        </h1>
+
+
+        <p class="text-slate-600 mt-4 max-w-2xl mx-auto">
+
+            Enter your project details and get a smart
+            estimated price with a complete cost breakdown.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= MAIN CONTENT ================= -->
+
+<main class="max-w-7xl mx-auto px-6 pb-20">
+
+
+    <div class="grid lg:grid-cols-2 gap-8">
+
+
+        <!-- ================= FORM ================= -->
+
+        <section class="bg-white border border-slate-200 rounded-3xl p-6 md:p-8 shadow-sm">
+
+            <h2 class="text-2xl font-bold">
+
+                Project Details
+
+            </h2>
+
+
+            <p class="text-slate-500 text-sm mt-2 mb-8">
+
+                Tell us about your freelance project.
+
+            </p>
+
+
+
+            <form id="estimatorForm"
+                  class="space-y-6">
+
+
+                <!-- Project Name -->
+
+                <div>
+
+                    <label class="block font-medium mb-2">
+
+                        Project Name
+
+                    </label>
+
+
+                    <input
+                        type="text"
+                        id="projectName"
+                        placeholder="e.g. E-commerce Website"
+                        class="w-full border border-slate-300 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-primary focus:border-primary"
+                    >
+
+                </div>
+
+
+
+                <!-- Service -->
+
+                <div>
+
+                    <label class="block font-medium mb-2">
+
+                        Service Category
+
+                    </label>
+
+
+                    <select
+                        id="service"
+                        class="w-full border border-slate-300 rounded-xl px-4 py-3 bg-white outline-none focus:ring-2 focus:ring-primary"
+                    >
+
+                        <option value="web">Web Development</option>
+
+                        <option value="uiux">UI/UX Design</option>
+
+                        <option value="graphic">Graphic Design</option>
+
+                        <option value="data">Data Analysis</option>
+
+                        <option value="content">Content Writing</option>
+
+                        <option value="marketing">Digital Marketing</option>
+
+                        <option value="automation">Automation / AI</option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- Experience -->
+
+                <div>
+
+                    <label class="block font-medium mb-3">
+
+                        Experience Level
+
+                    </label>
+
+
+                    <div class="grid grid-cols-3 gap-3">
+
+
+                        <label class="cursor-pointer">
+
+                            <input
+                                type="radio"
+                                name="experience"
+                                value="beginner"
+                                checked
+                                class="peer hidden"
+                            >
+
+                            <div class="border border-slate-300 rounded-xl p-3 text-center peer-checked:bg-indigo-50 peer-checked:border-primary peer-checked:text-primary transition">
+
+                                Beginner
+
+                            </div>
+
+                        </label>
+
+
+
+                        <label class="cursor-pointer">
+
+                            <input
+                                type="radio"
+                                name="experience"
+                                value="intermediate"
+                                class="peer hidden"
+                            >
+
+                            <div class="border border-slate-300 rounded-xl p-3 text-center peer-checked:bg-indigo-50 peer-checked:border-primary peer-checked:text-primary transition">
+
+                                Intermediate
+
+                            </div>
+
+                        </label>
+
+
+
+                        <label class="cursor-pointer">
+
+                            <input
+                                type="radio"
+                                name="experience"
+                                value="expert"
+                                class="peer hidden"
+                            >
+
+                            <div class="border border-slate-300 rounded-xl p-3 text-center peer-checked:bg-indigo-50 peer-checked:border-primary peer-checked:text-primary transition">
+
+                                Expert
+
+                            </div>
+
+                        </label>
+
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Complexity -->
+
+                <div>
+
+                    <label class="block font-medium mb-3">
+
+                        Project Complexity
+
+                    </label>
+
+
+                    <div class="grid grid-cols-3 gap-3">
+
+
+                        <label class="cursor-pointer">
+
+                            <input
+                                type="radio"
+                                name="complexity"
+                                value="basic"
+                                checked
+                                class="peer hidden"
+                            >
+
+                            <div class="border border-slate-300 rounded-xl p-3 text-center peer-checked:bg-indigo-50 peer-checked:border-primary peer-checked:text-primary transition">
+
+                                Basic
+
+                            </div>
+
+                        </label>
+
+
+
+                        <label class="cursor-pointer">
+
+                            <input
+                                type="radio"
+                                name="complexity"
+                                value="medium"
+                                class="peer hidden"
+                            >
+
+                            <div class="border border-slate-300 rounded-xl p-3 text-center peer-checked:bg-indigo-50 peer-checked:border-primary peer-checked:text-primary transition">
+
+                                Medium
+
+                            </div>
+
+                        </label>
+
+
+
+                        <label class="cursor-pointer">
+
+                            <input
+                                type="radio"
+                                name="complexity"
+                                value="advanced"
+                                class="peer hidden"
+                            >
+
+                            <div class="border border-slate-300 rounded-xl p-3 text-center peer-checked:bg-indigo-50 peer-checked:border-primary peer-checked:text-primary transition">
+
+                                Advanced
+
+                            </div>
+
+                        </label>
+
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Hours -->
+
+                <div>
+
+                    <label class="block font-medium mb-2">
+
+                        Estimated Hours
+
+                    </label>
+
+
+                    <input
+                        type="number"
+                        id="hours"
+                        min="1"
+                        value="10"
+                        class="w-full border border-slate-300 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-primary"
+                    >
+
+                </div>
+
+
+
+                <!-- Urgency -->
+
+                <div>
+
+                    <label class="block font-medium mb-2">
+
+                        Project Deadline
+
+                    </label>
+
+
+                    <select
+                        id="urgency"
+                        class="w-full border border-slate-300 rounded-xl px-4 py-3 bg-white outline-none focus:ring-2 focus:ring-primary"
+                    >
+
+                        <option value="normal">
+
+                            Normal Deadline
+
+                        </option>
+
+                        <option value="urgent">
+
+                            Urgent (+20%)
+
+                        </option>
+
+                        <option value="veryUrgent">
+
+                            Very Urgent (+40%)
+
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- Button -->
+
+                <button
+                    type="submit"
+                    class="w-full bg-primary text-white py-4 rounded-xl font-semibold hover:bg-indigo-700 transition shadow-lg"
+                >
+
+                    Calculate Estimate
+
+                </button>
+
+
+            </form>
+
+        </section>
+
+
+
+        <!-- ================= RESULT ================= -->
+
+        <section id="resultSection"
+                 class="space-y-6">
+
+
+            <!-- Main Price Card -->
+
+            <div class="bg-gradient-to-br from-indigo-600 to-violet-600 text-white rounded-3xl p-8 shadow-lg">
+
+                <p class="text-indigo-100">
+
+                    Estimated Project Price
+
+                </p>
+
+
+                <h2 id="finalPrice"
+                    class="text-5xl font-bold mt-3">
+
+                    ₹0
+
+                </h2>
+
+
+                <p id="priceStatus"
+                   class="mt-4 bg-white/15 inline-block px-4 py-2 rounded-full text-sm">
+
+                    Fill the project details to calculate.
+
+                </p>
+
+            </div>
+
+
+
+            <!-- Price Breakdown -->
+
+            <div class="bg-white border border-slate-200 rounded-3xl p-6">
+
+                <div class="flex justify-between items-center mb-6">
+
+                    <div>
+
+                        <h2 class="text-xl font-bold">
+
+                            Price Breakdown
+
+                        </h2>
+
+
+                        <p class="text-sm text-slate-500 mt-1">
+
+                            See how your estimate is calculated.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="space-y-4">
+
+
+                    <div class="flex justify-between">
+
+                        <span class="text-slate-600">
+
+                            Base Cost
+
+                        </span>
+
+
+                        <span id="baseCost">
+
+                            ₹0
+
+                        </span>
+
+                    </div>
+
+
+
+                    <div class="flex justify-between">
+
+                        <span class="text-slate-600">
+
+                            Experience Adjustment
+
+                        </span>
+
+
+                        <span id="experienceCost">
+
+                            ₹0
+
+                        </span>
+
+                    </div>
+
+
+
+                    <div class="flex justify-between">
+
+                        <span class="text-slate-600">
+
+                            Complexity Adjustment
+
+                        </span>
+
+
+                        <span id="complexityCost">
+
+                            ₹0
+
+                        </span>
+
+                    </div>
+
+
+
+                    <div class="flex justify-between">
+
+                        <span class="text-slate-600">
+
+                            Urgency Charge
+
+                        </span>
+
+
+                        <span id="urgencyCost">
+
+                            ₹0
+
+                        </span>
+
+                    </div>
+
+
+                    <hr class="border-slate-200">
+
+
+                    <div class="flex justify-between text-lg font-bold">
+
+                        <span>
+
+                            Total Estimate
+
+                        </span>
+
+
+                        <span id="totalBreakdown"
+                              class="text-primary">
+
+                            ₹0
+
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Market Range -->
+
+            <div class="bg-white border border-slate-200 rounded-3xl p-6">
+
+                <h2 class="text-xl font-bold">
+
+                    Market Price Range
+
+                </h2>
+
+
+                <p class="text-sm text-slate-500 mt-1">
+
+                    Suggested range based on the calculated estimate.
+
+                </p>
+
+
+                <div class="mt-5 flex items-center justify-between">
+
+                    <div>
+
+                        <p class="text-sm text-slate-500">
+
+                            Suggested Range
+
+                        </p>
+
+
+                        <p id="marketRange"
+                           class="font-bold text-lg mt-1">
+
+                            ₹0 – ₹0
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="text-3xl">
+
+                        📊
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Smart Suggestion -->
+
+            <div class="bg-indigo-50 border border-indigo-100 rounded-3xl p-6">
+
+                <div class="flex gap-4">
+
+                    <div class="text-3xl">
+
+                        💡
+
+                    </div>
+
+
+                    <div>
+
+                        <h2 class="font-bold">
+
+                            Smart Pricing Suggestion
+
+                        </h2>
+
+
+                        <p id="suggestion"
+                           class="text-slate-600 mt-2">
+
+                            Your smart pricing suggestion will appear here.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Save Estimate -->
+
+            <button
+                id="saveEstimate"
+                class="hidden w-full border border-primary text-primary py-4 rounded-xl font-semibold hover:bg-indigo-50 transition"
+            >
+
+                Save Estimate to Dashboard
+
+            </button>
+
+
+        </section>
+
+
+    </div>
+
+
+</main>
+
+
+
+<!-- JavaScript -->
+
+<script src="estimator.js"></script>
+```
+
+</body>
+
+</html>

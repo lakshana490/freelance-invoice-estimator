@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+```
+<title>Dashboard | FreelanceFlow</title>
+
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    primary: "#6366F1",
+                    secondary: "#8B5CF6",
+                    dark: "#111827"
+                }
+            }
+        }
+    }
+</script>
+```
+
+</head>
+
+<body class="bg-slate-50 text-slate-800">
+
+```
+<!-- ================= MAIN LAYOUT ================= -->
+
+<div class="min-h-screen flex">
+
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="hidden lg:flex w-64 bg-white border-r border-slate-200 flex-col fixed inset-y-0">
+
+
+        <!-- Logo -->
+
+        <div class="px-6 py-6 border-b border-slate-200">
+
+            <a href="index.html"
+               class="text-2xl font-bold text-primary">
+
+                FreelanceFlow
+
+            </a>
+
+            <p class="text-xs text-slate-500 mt-1">
+
+                Freelance Management
+
+            </p>
+
+        </div>
+
+
+
+        <!-- Navigation -->
+
+        <nav class="flex-1 px-4 py-6 space-y-2">
+
+
+            <!-- Dashboard -->
+
+            <a href="dashbord.html"
+               class="flex items-center gap-3 px-4 py-3 rounded-xl bg-indigo-50 text-primary font-semibold">
+
+                <span class="text-xl">▦</span>
+
+                Dashboard
+
+            </a>
+
+
+
+            <!-- Estimator -->
+
+            <a href="estimator.html"
+               class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-100 hover:text-primary transition">
+
+                <span class="text-xl">💰</span>
+
+                Price Estimator
+
+            </a>
+
+
+
+            <!-- Scope -->
+
+            <a href="scope-creep.html"
+               class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-100 hover:text-primary transition">
+
+                <span class="text-xl">📈</span>
+
+                Scope Tracker
+
+            </a>
+
+
+
+            <!-- Milestones -->
+
+            <a href="milestones.html"
+               class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-100 hover:text-primary transition">
+
+                <span class="text-xl">🎯</span>
+
+                Milestones
+
+            </a>
+
+
+
+            <!-- Invoices -->
+
+            <a href="invoice.html"
+               class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-100 hover:text-primary transition">
+
+                <span class="text-xl">🧾</span>
+
+                Invoices
+
+            </a>
+
+
+
+            <!-- Saved Estimates -->
+
+            <a href="#estimates"
+               class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-100 hover:text-primary transition">
+
+                <span class="text-xl">📁</span>
+
+                Saved Estimates
+
+            </a>
+
+        </nav>
+
+
+
+        <!-- Bottom Sidebar -->
+
+        <div class="p-4 border-t border-slate-200">
+
+            <div class="flex items-center gap-3 p-3">
+
+                <div class="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center text-primary font-bold">
+
+                    K
+
+                </div>
+
+
+                <div>
+
+                    <p class="font-semibold text-sm">
+
+                        Freelancer
+
+                    </p>
+
+                    <p class="text-xs text-slate-500">
+
+                        My Profile
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+    <main class="flex-1 lg:ml-64">
+
+
+        <!-- ================= TOP NAVBAR ================= -->
+
+        <header class="bg-white border-b border-slate-200 px-6 py-4">
+
+            <div class="flex items-center justify-between">
+
+
+                <div>
+
+                    <p class="text-sm text-slate-500">
+
+                        Overview
+
+                    </p>
+
+                    <h1 class="text-2xl font-bold">
+
+                        Dashboard
+
+                    </h1>
+
+                </div>
+
+
+                <a href="estimator.html"
+                   class="bg-primary text-white px-5 py-3 rounded-xl font-semibold hover:bg-indigo-700 transition shadow-sm">
+
+                    + New Estimate
+
+                </a>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- ================= DASHBOARD CONTENT ================= -->
+
+        <div class="p-6 md:p-8">
+
+
+            <!-- Welcome -->
+
+            <div class="mb-8">
+
+                <h2 class="text-3xl font-bold">
+
+                    Welcome back! 👋
+
+                </h2>
+
+                <p class="text-slate-500 mt-2">
+
+                    Here's what's happening with your freelance business.
+
+                </p>
+
+            </div>
+
+
+
+            <!-- ================= STAT CARDS ================= -->
+
+            <div class="grid sm:grid-cols-2 xl:grid-cols-4 gap-5">
+
+
+                <!-- Earnings -->
+
+                <div class="bg-white border border-slate-200 rounded-2xl p-6">
+
+                    <div class="flex items-center justify-between">
+
+                        <div class="w-11 h-11 bg-green-100 rounded-xl flex items-center justify-center text-xl">
+
+                            ₹
+
+                        </div>
+
+                        <span class="text-green-600 text-sm font-medium">
+
+                            +12.5%
+
+                        </span>
+
+                    </div>
+
+
+                    <p class="text-slate-500 text-sm mt-5">
+
+                        Total Earnings
+
+                    </p>
+
+
+                    <h3 class="text-2xl font-bold mt-1">
+
+                        ₹84,500
+
+                    </h3>
+
+                </div>
+
+
+
+                <!-- Estimates -->
+
+                <div class="bg-white border border-slate-200 rounded-2xl p-6">
+
+                    <div class="flex items-center justify-between">
+
+                        <div class="w-11 h-11 bg-indigo-100 rounded-xl flex items-center justify-center text-xl">
+
+                            📊
+
+                        </div>
+
+                        <span class="text-primary text-sm font-medium">
+
+                            +8.2%
+
+                        </span>
+
+                    </div>
+
+
+                    <p class="text-slate-500 text-sm mt-5">
+
+                        Total Estimates
+
+                    </p>
+
+
+                    <h3 class="text-2xl font-bold mt-1">
+
+                        24
+
+                    </h3>
+
+                </div>
+
+
+
+                <!-- Pending -->
+
+                <div class="bg-white border border-slate-200 rounded-2xl p-6">
+
+                    <div class="flex items-center justify-between">
+
+                        <div class="w-11 h-11 bg-orange-100 rounded-xl flex items-center justify-center text-xl">
+
+                            ⏳
+
+                        </div>
+
+                        <span class="text-orange-600 text-sm font-medium">
+
+                            4 Projects
+
+                        </span>
+
+                    </div>
+
+
+                    <p class="text-slate-500 text-sm mt-5">
+
+                        Pending Payments
+
+                    </p>
+
+
+                    <h3 class="text-2xl font-bold mt-1">
+
+                        ₹18,200
+
+                    </h3>
+
+                </div>
+
+
+
+                <!-- Paid -->
+
+                <div class="bg-white border border-slate-200 rounded-2xl p-6">
+
+                    <div class="flex items-center justify-between">
+
+                        <div class="w-11 h-11 bg-purple-100 rounded-xl flex items-center justify-center text-xl">
+
+                            ✓
+
+                        </div>
+
+                        <span class="text-purple-600 text-sm font-medium">
+
+                            This Month
+
+                        </span>
+
+                    </div>
+
+
+                    <p class="text-slate-500 text-sm mt-5">
+
+                        Paid Invoices
+
+                    </p>
+
+
+                    <h3 class="text-2xl font-bold mt-1">
+
+                        16
+
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ================= MIDDLE SECTION ================= -->
+
+            <div class="grid xl:grid-cols-3 gap-6 mt-8">
+
+
+                <!-- Revenue Overview -->
+
+                <div class="xl:col-span-2 bg-white border border-slate-200 rounded-2xl p-6">
+
+
+                    <div class="flex justify-between items-center mb-8">
+
+                        <div>
+
+                            <h2 class="text-xl font-bold">
+
+                                Revenue Overview
+
+                            </h2>
+
+                            <p class="text-sm text-slate-500 mt-1">
+
+                                Your estimated revenue for the year
+
+                            </p>
+
+                        </div>
+
+
+                        <select class="border border-slate-300 rounded-lg px-3 py-2 text-sm bg-white">
+
+                            <option>2026</option>
+
+                            <option>2025</option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <!-- Fake Chart -->
+
+                    <div class="h-64 flex items-end justify-between gap-3 border-b border-slate-200">
+
+
+                        <div class="w-full bg-indigo-100 rounded-t-lg h-[35%] hover:bg-indigo-200 transition"></div>
+
+                        <div class="w-full bg-indigo-100 rounded-t-lg h-[48%] hover:bg-indigo-200 transition"></div>
+
+                        <div class="w-full bg-indigo-100 rounded-t-lg h-[42%] hover:bg-indigo-200 transition"></div>
+
+                        <div class="w-full bg-indigo-100 rounded-t-lg h-[65%] hover:bg-indigo-200 transition"></div>
+
+                        <div class="w-full bg-indigo-100 rounded-t-lg h-[55%] hover:bg-indigo-200 transition"></div>
+
+                        <div class="w-full bg-indigo-100 rounded-t-lg h-[72%] hover:bg-indigo-200 transition"></div>
+
+                        <div class="w-full bg-indigo-100 rounded-t-lg h-[60%] hover:bg-indigo-200 transition"></div>
+
+                        <div class="w-full bg-indigo-100 rounded-t-lg h-[80%] hover:bg-indigo-200 transition"></div>
+
+                        <div class="w-full bg-indigo-100 rounded-t-lg h-[68%] hover:bg-indigo-200 transition"></div>
+
+                        <div class="w-full bg-indigo-100 rounded-t-lg h-[88%] hover:bg-indigo-200 transition"></div>
+
+                        <div class="w-full bg-indigo-100 rounded-t-lg h-[75%] hover:bg-indigo-200 transition"></div>
+
+                        <div class="w-full bg-primary rounded-t-lg h-[95%]"></div>
+
+                    </div>
+
+
+
+                    <!-- Months -->
+
+                    <div class="flex justify-between text-xs text-slate-400 mt-3">
+
+                        <span>Jan</span>
+                        <span>Feb</span>
+                        <span>Mar</span>
+                        <span>Apr</span>
+                        <span>May</span>
+                        <span>Jun</span>
+                        <span>Jul</span>
+                        <span>Aug</span>
+                        <span>Sep</span>
+                        <span>Oct</span>
+                        <span>Nov</span>
+                        <span>Dec</span>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Quick Actions -->
+
+                <div class="bg-white border border-slate-200 rounded-2xl p-6">
+
+                    <h2 class="text-xl font-bold">
+
+                        Quick Actions
+
+                    </h2>
+
+                    <p class="text-sm text-slate-500 mt-1 mb-6">
+
+                        Manage your freelance work quickly.
+
+                    </p>
+
+
+                    <div class="space-y-3">
+
+
+                        <a href="estimator.html"
+                           class="flex items-center gap-4 p-4 rounded-xl bg-indigo-50 hover:bg-indigo-100 transition">
+
+                            <span class="text-2xl">💰</span>
+
+                            <div>
+
+                                <p class="font-semibold">
+
+                                    Create Estimate
+
+                                </p>
+
+                                <p class="text-xs text-slate-500">
+
+                                    Calculate project price
+
+                                </p>
+
+                            </div>
+
+                        </a>
+
+
+
+                        <a href="invoice.html"
+                           class="flex items-center gap-4 p-4 rounded-xl bg-slate-50 hover:bg-slate-100 transition">
+
+                            <span class="text-2xl">🧾</span>
+
+                            <div>
+
+                                <p class="font-semibold">
+
+                                    Create Invoice
+
+                                </p>
+
+                                <p class="text-xs text-slate-500">
+
+                                    Generate professional invoice
+
+                                </p>
+
+                            </div>
+
+                        </a>
+
+
+
+                        <a href="scope-creep.html"
+                           class="flex items-center gap-4 p-4 rounded-xl bg-slate-50 hover:bg-slate-100 transition">
+
+                            <span class="text-2xl">📈</span>
+
+                            <div>
+
+                                <p class="font-semibold">
+
+                                    Track Scope
+
+                                </p>
+
+                                <p class="text-xs text-slate-500">
+
+                                    Manage project changes
+
+                                </p>
+
+                            </div>
+
+                        </a>
+
+
+
+                        <a href="milestones.html"
+                           class="flex items-center gap-4 p-4 rounded-xl bg-slate-50 hover:bg-slate-100 transition">
+
+                            <span class="text-2xl">🎯</span>
+
+                            <div>
+
+                                <p class="font-semibold">
+
+                                    Payment Milestones
+
+                                </p>
+
+                                <p class="text-xs text-slate-500">
+
+                                    Manage project payments
+
+                                </p>
+
+                            </div>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ================= RECENT ESTIMATES ================= -->
+
+            <section id="estimates"
+                     class="mt-8 bg-white border border-slate-200 rounded-2xl overflow-hidden">
+
+
+                <div class="p-6 flex justify-between items-center">
+
+                    <div>
+
+                        <h2 class="text-xl font-bold">
+
+                            Recent Estimates
+
+                        </h2>
+
+                        <p class="text-sm text-slate-500 mt-1">
+
+                            Your latest project estimates
+
+                        </p>
+
+                    </div>
+
+
+                    <a href="estimator.html"
+                       class="text-primary text-sm font-semibold hover:underline">
+
+                        + New Estimate
+
+                    </a>
+
+                </div>
+
+
+
+                <!-- Table -->
+
+                <div class="overflow-x-auto">
+
+                    <table class="w-full text-sm">
+
+
+                        <thead class="bg-slate-50 border-y border-slate-200">
+
+                            <tr>
+
+                                <th class="text-left px-6 py-4 font-semibold">
+                                    Project
+                                </th>
+
+                                <th class="text-left px-6 py-4 font-semibold">
+                                    Service
+                                </th>
+
+                                <th class="text-left px-6 py-4 font-semibold">
+                                    Date
+                                </th>
+
+                                <th class="text-left px-6 py-4 font-semibold">
+                                    Amount
+                                </th>
+
+                                <th class="text-left px-6 py-4 font-semibold">
+                                    Status
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody class="divide-y divide-slate-100">
+
+
+                            <tr class="hover:bg-slate-50">
+
+                                <td class="px-6 py-4 font-medium">
+                                    E-commerce Website
+                                </td>
+
+                                <td class="px-6 py-4 text-slate-500">
+                                    Web Development
+                                </td>
+
+                                <td class="px-6 py-4 text-slate-500">
+                                    12 Sep 2026
+                                </td>
+
+                                <td class="px-6 py-4 font-semibold">
+                                    ₹32,500
+                                </td>
+
+                                <td class="px-6 py-4">
+
+                                    <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-medium">
+
+                                        Accepted
+
+                                    </span>
+
+                                </td>
+
+                            </tr>
+
+
+
+                            <tr class="hover:bg-slate-50">
+
+                                <td class="px-6 py-4 font-medium">
+                                    Mobile App UI
+                                </td>
+
+                                <td class="px-6 py-4 text-slate-500">
+                                    UI/UX Design
+                                </td>
+
+                                <td class="px-6 py-4 text-slate-500">
+                                    10 Sep 2026
+                                </td>
+
+                                <td class="px-6 py-4 font-semibold">
+                                    ₹18,000
+                                </td>
+
+                                <td class="px-6 py-4">
+
+                                    <span class="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-xs font-medium">
+
+                                        Pending
+
+                                    </span>
+
+                                </td>
+
+                            </tr>
+
+
+
+                            <tr class="hover:bg-slate-50">
+
+                                <td class="px-6 py-4 font-medium">
+                                    Sales Dashboard
+                                </td>
+
+                                <td class="px-6 py-4 text-slate-500">
+                                    Data Analysis
+                                </td>
+
+                                <td class="px-6 py-4 text-slate-500">
+                                    07 Sep 2026
+                                </td>
+
+                                <td class="px-6 py-4 font-semibold">
+                                    ₹24,500
+                                </td>
+
+                                <td class="px-6 py-4">
+
+                                    <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-medium">
+
+                                        Accepted
+
+                                    </span>
+
+                                </td>
+
+                            </tr>
+
+
+
+                            <tr class="hover:bg-slate-50">
+
+                                <td class="px-6 py-4 font-medium">
+                                    Brand Identity
+                                </td>
+
+                                <td class="px-6 py-4 text-slate-500">
+                                    Graphic Design
+                                </td>
+
+                                <td class="px-6 py-4 text-slate-500">
+                                    03 Sep 2026
+                                </td>
+
+                                <td class="px-6 py-4 font-semibold">
+                                    ₹12,500
+                                </td>
+
+                                <td class="px-6 py-4">
+
+                                    <span class="bg-slate-100 text-slate-600 px-3 py-1 rounded-full text-xs font-medium">
+
+                                        Draft
+
+                                    </span>
+
+                                </td>
+
+                            </tr>
+
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ================= RECENT INVOICES ================= -->
+
+            <section class="mt-8 bg-white border border-slate-200 rounded-2xl overflow-hidden">
+
+
+                <div class="p-6">
+
+                    <h2 class="text-xl font-bold">
+
+                        Recent Invoices
+
+                    </h2>
+
+                    <p class="text-sm text-slate-500 mt-1">
+
+                        Track your latest invoices and payments.
+
+                    </p>
+
+                </div>
+
+
+
+                <div class="grid md:grid-cols-3 gap-5 px-6 pb-6">
+
+
+                    <!-- Invoice 1 -->
+
+                    <div class="border border-slate-200 rounded-xl p-5">
+
+                        <div class="flex justify-between">
+
+                            <span class="text-xs text-slate-500">
+                                INV-2026-001
+                            </span>
+
+                            <span class="bg-green-100 text-green-700 px-2 py-1 rounded-full text-xs">
+                                Paid
+                            </span>
+
+                        </div>
+
+
+                        <h3 class="font-bold mt-4">
+
+                            E-commerce Website
+
+                        </h3>
+
+
+                        <p class="text-sm text-slate-500 mt-1">
+
+                            Client: ABC Solutions
+
+                        </p>
+
+
+                        <p class="text-2xl font-bold mt-5">
+
+                            ₹32,500
+
+                        </p>
+
+
+                        <p class="text-xs text-slate-400 mt-2">
+
+                            Due: 15 Sep 2026
+
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- Invoice 2 -->
+
+                    <div class="border border-slate-200 rounded-xl p-5">
+
+                        <div class="flex justify-between">
+
+                            <span class="text-xs text-slate-500">
+                                INV-2026-002
+                            </span>
+
+                            <span class="bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full text-xs">
+                                Pending
+                            </span>
+
+                        </div>
+
+
+                        <h3 class="font-bold mt-4">
+
+                            Mobile App UI
+
+                        </h3>
+
+
+                        <p class="text-sm text-slate-500 mt-1">
+
+                            Client: Nova Tech
+
+                        </p>
+
+
+                        <p class="text-2xl font-bold mt-5">
+
+                            ₹18,000
+
+                        </p>
+
+
+                        <p class="text-xs text-slate-400 mt-2">
+
+                            Due: 18 Sep 2026
+
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- Invoice 3 -->
+
+                    <div class="border border-slate-200 rounded-xl p-5">
+
+                        <div class="flex justify-between">
+
+                            <span class="text-xs text-slate-500">
+                                INV-2026-003
+                            </span>
+
+                            <span class="bg-red-100 text-red-700 px-2 py-1 rounded-full text-xs">
+                                Overdue
+                            </span>
+
+                        </div>
+
+
+                        <h3 class="font-bold mt-4">
+
+                            Data Dashboard
+
+                        </h3>
+
+
+                        <p class="text-sm text-slate-500 mt-1">
+
+                            Client: XYZ Pvt Ltd
+
+                        </p>
+
+
+                        <p class="text-2xl font-bold mt-5">
+
+                            ₹24,500
+
+                        </p>
+
+
+                        <p class="text-xs text-slate-400 mt-2">
+
+                            Due: 05 Sep 2026
+
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ================= FOOTER ================= -->
+
+            <footer class="mt-10 text-center text-sm text-slate-400">
+
+                FreelanceFlow • Smart Freelance Management
+
+            </footer>
+
+
+        </div>
+
+    </main>
+
+</div>
+```
+
+</body>
+
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Invoice Generator | FreelanceFlow</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+.field{width:100%;border:1px solid #cbd5e1;border-radius:0.75rem;padding:0.75rem 1rem;outline:none}.field:focus{box-shadow:0 0 0 2px #6366f1}
+@media print {
+  .no-print{display:none!important}
+  body{background:white!important}
+  .invoice{box-shadow:none!important;border:0!important}
+  @page{size:A4;margin:12mm}
+}
+</style>
+</head>
+<body class="bg-slate-100 text-slate-800">
+
+<nav class="no-print bg-white border-b sticky top-0 z-50">
+<div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+<a href="index.html" class="flex items-center gap-2">
+<div class="w-9 h-9 rounded-xl bg-indigo-600 text-white flex items-center justify-center font-bold">F</div>
+<span class="text-xl font-bold text-slate-900">FreelanceFlow</span>
+</a>
+<div class="hidden md:flex gap-6 text-sm font-medium">
+<a href="index.html" class="hover:text-indigo-600">Home</a>
+<a href="estimator.html" class="hover:text-indigo-600">Estimator</a>
+<a href="scope-creep.html" class="hover:text-indigo-600">Scope Tracker</a>
+<a href="milestones.html" class="hover:text-indigo-600">Milestones</a>
+<a href="invoice.html" class="text-indigo-600">Invoice</a>
+<a href="dashboard.html" class="hover:text-indigo-600">Dashboard</a>
+</div>
+</div>
+</nav>
+
+<section class="no-print max-w-7xl mx-auto px-6 pt-10 pb-6">
+<p class="text-sm font-semibold text-indigo-600 uppercase">Billing</p>
+<h1 class="text-4xl font-bold text-slate-900 mt-2">Invoice Generator</h1>
+<p class="text-slate-600 mt-3">Create a clean professional invoice for your freelance project.</p>
+</section>
+
+<main class="max-w-7xl mx-auto px-6 pb-16">
+
+<div class="no-print bg-white rounded-2xl border shadow-sm p-6 mb-8">
+<h2 class="text-xl font-bold mb-5">Invoice Details</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+<div><label class="block text-sm font-semibold mb-2">Freelancer / Business Name</label>
+<input id="businessName" value="FreelanceFlow Studio" class="field"></div>
+<div><label class="block text-sm font-semibold mb-2">Invoice Number</label>
+<input id="invoiceNumber" value="INV-2026-001" class="field"></div>
+<div><label class="block text-sm font-semibold mb-2">Client Name</label>
+<input id="clientName" placeholder="ABC Solutions" class="field"></div>
+<div><label class="block text-sm font-semibold mb-2">Client Email</label>
+<input id="clientEmail" type="email" placeholder="client@example.com" class="field"></div>
+<div><label class="block text-sm font-semibold mb-2">Invoice Date</label>
+<input id="invoiceDate" type="date" class="field"></div>
+<div><label class="block text-sm font-semibold mb-2">Due Date</label>
+<input id="dueDate" type="date" class="field"></div>
+</div>
+<div class="mt-5">
+<label class="block text-sm font-semibold mb-2">Notes / Payment Terms</label>
+<textarea id="notes" rows="3" class="field">Thank you for your business.</textarea>
+</div>
+</div>
+
+<div class="no-print bg-white rounded-2xl border shadow-sm p-6 mb-8">
+<div class="flex justify-between items-center mb-5">
+<div><h2 class="text-xl font-bold">Invoice Items</h2><p class="text-sm text-slate-500">Add services included in the project.</p></div>
+<button id="addItem" class="px-5 py-3 rounded-xl bg-indigo-600 text-white font-semibold hover:bg-indigo-700">+ Add Item</button>
+</div>
+<div id="items" class="space-y-4"></div>
+</div>
+
+<div class="invoice bg-white rounded-2xl border shadow-xl overflow-hidden">
+<div class="p-8 md:p-12">
+
+<div class="flex flex-col md:flex-row justify-between gap-8 border-b pb-8">
+<div>
+<div class="flex items-center gap-3">
+<div class="w-11 h-11 rounded-xl bg-indigo-600 text-white flex items-center justify-center font-bold text-xl">F</div>
+<h2 id="pBusiness" class="text-2xl font-bold">FreelanceFlow Studio</h2>
+</div>
+<p class="text-slate-500 mt-3">Professional Freelance Services</p>
+</div>
+<div class="md:text-right">
+<p class="text-xs uppercase tracking-widest text-slate-400">Invoice</p>
+<h3 id="pNumber" class="text-2xl font-bold mt-1">INV-2026-001</h3>
+<p class="text-sm text-slate-500 mt-2">Date: <span id="pDate">-</span></p>
+<p class="text-sm text-slate-500">Due: <span id="pDue">-</span></p>
+</div>
+</div>
+
+<div class="grid md:grid-cols-2 gap-8 py-8 border-b">
+<div>
+<p class="text-xs uppercase tracking-widest font-semibold text-slate-400">Bill To</p>
+<h3 id="pClient" class="text-lg font-bold mt-2">Client Name</h3>
+<p id="pEmail" class="text-slate-500 mt-1">client@example.com</p>
+</div>
+<div class="md:text-right">
+<p class="text-xs uppercase tracking-widest font-semibold text-slate-400">Payment Status</p>
+<span class="inline-block mt-2 px-4 py-2 rounded-full bg-amber-100 text-amber-700 text-sm font-semibold">Pending</span>
+</div>
+</div>
+
+<div class="overflow-x-auto py-8">
+<table class="w-full min-w-[650px]">
+<thead><tr class="border-b text-left">
+<th class="py-4 text-sm text-slate-500">DESCRIPTION</th>
+<th class="py-4 text-sm text-slate-500 text-center">QTY</th>
+<th class="py-4 text-sm text-slate-500 text-right">RATE</th>
+<th class="py-4 text-sm text-slate-500 text-right">AMOUNT</th>
+</tr></thead>
+<tbody id="preview"></tbody>
+</table>
+</div>
+
+<div class="flex justify-end border-t pt-6">
+<div class="w-full md:w-80 space-y-3">
+<div class="flex justify-between text-slate-600"><span>Subtotal</span><span id="subtotal">₹0</span></div>
+<div class="flex justify-between text-slate-600"><span>Tax</span><span>₹0</span></div>
+<div class="flex justify-between text-xl font-bold border-t pt-4"><span>Total</span><span id="total">₹0</span></div>
+</div>
+</div>
+
+<div class="mt-10 pt-6 border-t">
+<p class="text-xs uppercase tracking-widest font-semibold text-slate-400">Notes</p>
+<p id="pNotes" class="text-sm text-slate-600 mt-2">Thank you for your business.</p>
+</div>
+
+</div>
+</div>
+
+<div class="no-print flex justify-end gap-3 mt-6">
+<button id="clear" class="px-5 py-3 rounded-xl border bg-white font-semibold">Clear</button>
+<button id="print" class="px-6 py-3 rounded-xl bg-indigo-600 text-white font-semibold">Print / Save PDF</button>
+</div>
+
+</main>
+
+<footer class="no-print border-t bg-white text-center py-7 text-sm text-slate-500">
+© 2026 FreelanceFlow. Dynamic Freelance Invoice Estimator.
+</footer>
+
+<script>
+const $=id=>document.getElementById(id);
+const fieldClass="w-full border border-slate-300 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-indigo-500";
+document.querySelectorAll("input,textarea").forEach(e=>e.classList.add(...fieldClass.split(" ")));
+
+let items=[];
+const today=new Date().toISOString().split("T")[0];
+$("invoiceDate").value=today;
+
+function money(n){return "₹"+Number(n).toLocaleString("en-IN",{maximumFractionDigits:2});}
+function dateText(v){if(!v)return "-";return new Date(v+"T00:00:00").toLocaleDateString("en-IN",{day:"2-digit",month:"short",year:"numeric"});}
+function esc(v){const d=document.createElement("div");d.textContent=v;return d.innerHTML;}
+
+function renderForms(){
+$("items").innerHTML="";
+if(!items.length){
+$("items").innerHTML='<div class="border border-dashed rounded-xl p-6 text-center text-slate-500">No items yet. Click <b>+ Add Item</b>.</div>';
+return;
+}
+items.forEach((x,i)=>{
+const d=document.createElement("div");
+d.className="border rounded-xl p-5";
+d.innerHTML=`
+<div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-end">
+<div class="md:col-span-5"><label class="block text-sm font-semibold mb-2">Description</label>
+<input data-i="${i}" data-f="description" value="${esc(x.description)}" placeholder="Website Development" class="item field"></div>
+<div class="md:col-span-2"><label class="block text-sm font-semibold mb-2">Quantity</label>
+<input type="number" min="1" data-i="${i}" data-f="quantity" value="${x.quantity}" class="item field"></div>
+<div class="md:col-span-3"><label class="block text-sm font-semibold mb-2">Rate (₹)</label>
+<input type="number" min="0" data-i="${i}" data-f="rate" value="${x.rate}" class="item field"></div>
+<div class="md:col-span-2"><button data-del="${i}" class="delete w-full px-4 py-3 rounded-xl bg-red-50 text-red-600 font-semibold">Delete</button></div>
+</div>`;
+$("items").appendChild(d);
+});
+document.querySelectorAll(".item").forEach(e=>e.addEventListener("input",()=>{
+const i=+e.dataset.i,f=e.dataset.f;
+items[i][f]=(f==="quantity"||f==="rate")?(+e.value||0):e.value;
+update();
+}));
+document.querySelectorAll(".delete").forEach(e=>e.onclick=()=>{items.splice(+e.dataset.del,1);renderForms();update();});
+}
+
+function update(){
+$("pBusiness").textContent=$("businessName").value||"FreelanceFlow Studio";
+$("pNumber").textContent=$("invoiceNumber").value||"INV-2026-001";
+$("pClient").textContent=$("clientName").value||"Client Name";
+$("pEmail").textContent=$("clientEmail").value||"client@example.com";
+$("pDate").textContent=dateText($("invoiceDate").value);
+$("pDue").textContent=dateText($("dueDate").value);
+$("pNotes").textContent=$("notes").value||"Thank you for your business.";
+
+let sub=0;
+$("preview").innerHTML="";
+if(!items.length){
+$("preview").innerHTML='<tr><td colspan="4" class="py-8 text-center text-slate-400">No items added</td></tr>';
+}else items.forEach(x=>{
+const amount=x.quantity*x.rate;sub+=amount;
+$("preview").innerHTML+=`<tr class="border-b border-slate-100">
+<td class="py-4 font-medium">${esc(x.description||"Service")}</td>
+<td class="py-4 text-center">${x.quantity}</td>
+<td class="py-4 text-right">${money(x.rate)}</td>
+<td class="py-4 text-right font-semibold">${money(amount)}</td></tr>`;
+});
+$("subtotal").textContent=money(sub);
+$("total").textContent=money(sub);
+}
+
+["businessName","invoiceNumber","clientName","clientEmail","invoiceDate","dueDate","notes"].forEach(id=>{
+$(id).addEventListener("input",update);$(id).addEventListener("change",update);
+});
+
+$("addItem").onclick=()=>{items.push({description:"",quantity:1,rate:0});renderForms();update();};
+$("print").onclick=()=>{if(!items.length)return alert("Please add at least one invoice item.");window.print();};
+$("clear").onclick=()=>{
+if(!confirm("Clear this invoice?"))return;
+$("businessName").value="FreelanceFlow Studio";$("invoiceNumber").value="INV-2026-001";
+$("clientName").value="";$("clientEmail").value="";$("invoiceDate").value=today;$("dueDate").value="";
+$("notes").value="Thank you for your business.";items=[];renderForms();update();
+};
+renderForms();update();
+</script>
+</body>
+</html>
